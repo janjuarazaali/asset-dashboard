@@ -13,7 +13,7 @@ def numeric_filter_ui(col_name, df):
     return st.slider(f"{col_name} range", min_val, max_val, (min_val, max_val))
 
 if uploaded_file:
-    df = pd.read_excel(uploaded_file)
+    df = pd.read_excel(uploaded_file, header=1)
     df.columns = df.columns.str.strip()
     df['Date Placed in Service'] = pd.to_datetime(df['Date Placed in Service'], errors='coerce')
     
